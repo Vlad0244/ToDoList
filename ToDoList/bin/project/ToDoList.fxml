@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ToDoListController">
+   <top>
+      <VBox prefHeight="140.0" prefWidth="806.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create TO-DO Item" wrappingWidth="155.13671875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <HBox prefHeight="168.0" prefWidth="806.0">
+               <children>
+                  <Region prefHeight="83.0" prefWidth="7.0" />
+                  <TextField fx:id="textFieldNewItem" prefHeight="56.0" prefWidth="321.0" />
+                  <Region prefHeight="116.0" prefWidth="36.0" />
+                  <Region prefHeight="83.0" prefWidth="8.0" />
+                  <VBox prefHeight="116.0" prefWidth="216.0">
+                     <children>
+                        <MenuButton fx:id="buttonChooseGroup" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" text="Add To Group:">
+                          <items>
+                            <MenuItem fx:id="menuGroup1" mnemonicParsing="false" onAction="#addToGroup1" text="Group 1" />
+                              <MenuItem fx:id="menuGroup2" mnemonicParsing="false" onAction="#addToGroup2" text="Group 2" />
+                          </items>
+                        </MenuButton>
+                        <Label fx:id="labelIfEmpty" prefHeight="24.0" prefWidth="244.0" />
+                        <Region prefHeight="8.0" prefWidth="100.0" />
+                     </children>
+                  </VBox>
+                  <Region prefHeight="83.0" prefWidth="21.0" />
+                  <Region prefHeight="91.0" prefWidth="148.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ButtonBar prefHeight="0.0" prefWidth="180.0">
+                          <buttons>
+                            <Button fx:id="buttonImport" mnemonicParsing="false" onAction="#handleToDoImport" text="Load" />
+                              <Button fx:id="buttonExport" mnemonicParsing="false" onAction="#handleToDoExport" text="Save" />
+                          </buttons>
+                        </ButtonBar>
+                        <Label fx:id="labelIfFileEmpty" alignment="CENTER" prefHeight="25.0" prefWidth="180.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <HBox prefHeight="429.0" prefWidth="819.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane fx:id="tabPane" prefHeight="429.0" prefWidth="675.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab fx:id="tabGroup1" text="Group 1">
+                     <content>
+                        <ListView fx:id="listViewGroup1" prefHeight="400.0" prefWidth="642.0" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabGroup2" text="Group 2">
+                     <content>
+                        <ListView fx:id="listViewGroup2" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabCompleted" text="Completed">
+                     <content>
+                        <ListView fx:id="listViewCompleted" prefHeight="200.0" prefWidth="200.0" />
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <VBox prefHeight="429.0" prefWidth="230.0">
+               <children>
+                  <TextField fx:id="textFieldNameChange" prefHeight="40.0" prefWidth="163.0" />
+                  <Region prefHeight="7.0" prefWidth="181.0" />
+                  <Button fx:id="buttonNameChange" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNameChange" prefHeight="25.0" prefWidth="177.0" text="Change Name of Selected Tab" />
+                  <Label fx:id="labelIfNameEmpty" prefHeight="17.0" prefWidth="251.0" />
+                  <Region prefHeight="135.0" prefWidth="132.0" />
+                  <Button fx:id="buttonDeleteItem" mnemonicParsing="false" onAction="#handleItemDelete" prefHeight="25.0" prefWidth="240.0" text="Delete Item" />
+                  <Region prefHeight="15.0" prefWidth="132.0" />
+                  <Button fx:id="buttonCompleted" mnemonicParsing="false" onAction="#handleItemCompleted" prefHeight="25.0" prefWidth="192.0" text="Completed!" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
